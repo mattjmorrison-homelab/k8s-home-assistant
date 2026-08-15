@@ -1,0 +1,7 @@
+image:
+  repository: ghcr.io/home-assistant/home-assistant
+  tag: stable
+
+initImage:
+  repository: busybox
+  tag: latest

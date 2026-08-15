@@ -17,7 +17,7 @@ spec:
       dnsPolicy: ClusterFirstWithHostNet
       initContainers:
         - name: init-config
-          image: busybox
+          image: "{{ .Values.initImage.repository }}:{{ .Values.initImage.tag }}"
           command: ['sh', '-c', '[ -f /config/configuration.yaml ] || cp /tmp/initial-config/configuration.yaml /config/configuration.yaml && mkdir -p /config/.storage && cp /tmp/http-storage/http /config/.storage/http && cp /tmp/onboarding-storage/onboarding /config/.storage/onboarding']
           volumeMounts:
             - name: config
@@ -30,7 +30,7 @@ spec:
               mountPath: /tmp/onboarding-storage
       containers:
         - name: home-assistant
-          image: ghcr.io/home-assistant/home-assistant:stable
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           ports:
             - containerPort: 8123
           volumeMounts:

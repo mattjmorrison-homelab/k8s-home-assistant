@@ -1,0 +1,10 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: k8s-home-assistant
+  annotations:
+    github.com/project-slug: mattjmorrison-homelab/k8s-home-assistant
+spec:
+  type: home-automation-hub
+  owner: mattjmorrison-homelab
+  system: home-automation
